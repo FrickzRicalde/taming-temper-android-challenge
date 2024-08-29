@@ -79,6 +79,10 @@ dependencies {
     kapt("androidx.hilt:hilt-compiler:1.2.0")
     implementation("androidx.work:work-runtime-ktx:2.9.1")
     implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
+
+    
+    testImplementation("org.mockito:mockito-core:4.10.0")
+    testImplementation ("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.1")
     // I added these dependencies END
 
     testImplementation(libs.junit)
