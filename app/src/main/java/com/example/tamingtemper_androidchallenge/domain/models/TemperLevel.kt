@@ -8,7 +8,7 @@ data class TemperLevel(
     var title: String? = "",
     var description: String? = "",
     var state: String? = "",
-    var activities: ArrayList<TemperActivity>? = null
+    var activities: ArrayList<TemperAct>? = null
 ) {
     public fun toData(): TemperLevelData {
         return TemperLevelData(
@@ -30,7 +30,7 @@ data class TemperLevel(
         return this
     }
 
-    private fun temperActivityListToData(activityList: ArrayList<TemperActivity>?): ArrayList<TemperActivityData>? {
+    private fun temperActivityListToData(activityList: ArrayList<TemperAct>?): ArrayList<TemperActivityData>? {
 
         val dataList = ArrayList<TemperActivityData>()
         activityList?.forEach {
@@ -40,11 +40,11 @@ data class TemperLevel(
         return dataList
     }
 
-    private fun temperActivityListFromData(dataList: ArrayList<TemperActivityData>?): ArrayList<TemperActivity>? {
+    private fun temperActivityListFromData(dataList: ArrayList<TemperActivityData>?): ArrayList<TemperAct>? {
 
-        val activityList = ArrayList<TemperActivity>()
+        val activityList = ArrayList<TemperAct>()
         dataList?.forEach {
-            activityList.add(TemperActivity().fromData(it))
+            activityList.add(TemperAct().fromData(it))
         }
 
         return activityList

@@ -24,9 +24,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
+import androidx.core.net.toUri
 import androidx.lifecycle.lifecycleScope
 import com.example.tamingtemper_androidchallenge.domain.models.TemperLevels
-import com.example.tamingtemper_androidchallenge.domain.usecases.TemperLevelsUseCases
 import com.example.tamingtemper_androidchallenge.presentation.onboarding.OnBoardingViewModel
 import com.example.tamingtemper_androidchallenge.presentation.onboarding.OnboardingScreen
 import com.example.tamingtemper_androidchallenge.ui.theme.TamingTemperAndroidChallengeTheme
@@ -41,6 +41,8 @@ import java.io.File
 import javax.inject.Inject
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.tamingtemper_androidchallenge.presentation.onboarding.OnBoardingEvent
+import com.pspdfkit.document.PdfDocumentLoader
+import com.pspdfkit.ui.PdfActivity
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -243,6 +245,25 @@ class MainActivity : ComponentActivity() {
 //fun Greeting(name: String, modifier: Modifier = Modifier) {
 fun Greeting(name: String, modifier: Modifier = Modifier, document: PdfDocument, context: Context) {
 
+//    val urlString = ""
+//    val filename = urlString.split("/").last()
+//
+//        val file =
+//            File(Environment.getExternalStorageDirectory().toString() + "/Download/Test/$filename")
+//
+//
+//        var x = PdfDocumentLoader
+//            .openDocumentAsync(
+//                context,
+//                file.toUri()
+//
+//            )
+//    x.subscribe { it ->
+//
+//    }
+
+
+//        document = x.blockingGet()
 
     val thumbnailImage = remember(document) {
         val pageImageSize = document.getPageSize(0).toRect()

@@ -37,17 +37,18 @@ fun PageIndicator(
             ) {
                 Box(
                     modifier = Modifier
-                        .size(20.dp)
+                        .size(12.dp)
                         .clip(CircleShape)
                         .background(color = if (page == selectedPage) selectedColor else unselectedColor)
                 )
 
+                val day = listOf("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun")
                 Text(
-                    text = "Mon"
+                    text = day[page]
                 )
 
                 if (page == selectedPage) {
-                    HorizontalDivider(thickness = 5.dp, color = selectedColor)
+                    HorizontalDivider(thickness = 3.dp, color = selectedColor)
                 }
 
             }

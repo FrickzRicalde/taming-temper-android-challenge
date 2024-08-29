@@ -1,8 +1,10 @@
 package com.example.tamingtemper_androidchallenge.presentation.onboarding
 
+import androidx.compose.ui.graphics.ImageBitmap
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.tamingtemper_androidchallenge.data.models.TemperLevelsData
+import com.example.tamingtemper_androidchallenge.domain.models.TemperFile
 import com.example.tamingtemper_androidchallenge.domain.models.TemperLevels
 import com.example.tamingtemper_androidchallenge.domain.repositories.UserRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -18,7 +20,7 @@ class OnBoardingViewModel @Inject constructor(
 ) : ViewModel() {
 
     private var _temperLevels = MutableStateFlow(TemperLevels())
-    val temperLevels: StateFlow<TemperLevels> = _temperLevels.asStateFlow()
+    val temperLevels = _temperLevels.asStateFlow()
 
     fun onEvent(event: OnBoardingEvent) {
         when (event) {
@@ -50,5 +52,12 @@ class OnBoardingViewModel @Inject constructor(
             }
         }
 
+    }
+
+
+    fun loadImage(file: TemperFile, imageBitmap: (ImageBitmap)->Unit) {
+        viewModelScope.launch {
+            userRepository.loadImage(file, imageBitmap)
+        }
     }
 }

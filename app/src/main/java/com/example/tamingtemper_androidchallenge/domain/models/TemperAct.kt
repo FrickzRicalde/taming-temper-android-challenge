@@ -1,9 +1,8 @@
 package com.example.tamingtemper_androidchallenge.domain.models
 
 import com.example.tamingtemper_androidchallenge.data.models.TemperActivityData
-import com.example.tamingtemper_androidchallenge.data.models.TemperIconData
 
-data class TemperActivity(
+data class TemperAct(
     var id: String? = "",
     var challengeId: String? = "",
     var type: String? = "",
@@ -30,7 +29,7 @@ data class TemperActivity(
             )
     }
 
-    fun fromData(data: TemperActivityData): TemperActivity {
+    fun fromData(data: TemperActivityData): TemperAct {
         id = data.id
         challengeId = data.challengeId
         type = data.type
