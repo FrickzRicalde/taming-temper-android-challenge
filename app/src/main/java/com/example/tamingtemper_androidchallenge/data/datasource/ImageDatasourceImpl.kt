@@ -4,21 +4,22 @@ import android.content.Context
 import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.core.net.toUri
+import com.example.tamingtemper_androidchallenge.domain.datasource.ImageDatasource
 import com.pspdfkit.document.PdfDocumentLoader
 import com.pspdfkit.document.download.DownloadJob
 import com.pspdfkit.document.download.DownloadRequest
 import com.pspdfkit.document.download.Progress
 import java.io.File
 
-class Datasource(
+class ImageDatasourceImpl(
     private val context: Context
-) {
+): ImageDatasource {
 
     lateinit var request: DownloadRequest
 
     lateinit var job: DownloadJob
 
-    fun downloadImage(url: String, success: (Boolean)->Unit){
+    override fun downloadImage(url: String, success: (Boolean)->Unit){
         val filename = url.split("/").last()
         val outputFile = File(context.filesDir, filename)
         request = DownloadRequest.Builder(context)
@@ -42,7 +43,7 @@ class Datasource(
         })
     }
 
-    fun loadImageFromAppDir(url: String?, imageBitmap: (ImageBitmap)->Unit){
+    override fun loadImageFromAppDir(url: String?, imageBitmap: (ImageBitmap)->Unit){
         val filename = url?.split("/")?.last()
 
         val file = File(context.filesDir, filename)

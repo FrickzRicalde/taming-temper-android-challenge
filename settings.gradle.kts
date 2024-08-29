@@ -17,9 +17,8 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-//        maven {
-//            url = java.net.URI("https://customers.pspdfkit.com/maven/")
-//        }
+
+        //I added
         maven {
             url = uri("https://my.pspdfkit.com/maven/")
         }

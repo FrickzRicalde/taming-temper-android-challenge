@@ -1,13 +1,13 @@
 package com.example.tamingtemper_androidchallenge.presentation.onboarding.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material3.Divider
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -24,14 +24,21 @@ fun PageIndicator(
     selectedPage: Int,
     selectedColor: Color = Color.Blue,
     unselectedColor: Color = Color.Gray,
+    onClickItem: (Int) -> Unit,
 ) {
+    val days = listOf("MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN")
+
     Row(
         modifier = modifier,
         horizontalArrangement = Arrangement.SpaceEvenly,
-        ) {
+    ) {
         repeat(pageSize) { page ->
             Column(
-                modifier = modifier.weight(1f),
+                modifier = modifier
+                    .weight(1f)
+                    .clickable {
+                        onClickItem(page)
+                    },
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
@@ -42,9 +49,8 @@ fun PageIndicator(
                         .background(color = if (page == selectedPage) selectedColor else unselectedColor)
                 )
 
-                val day = listOf("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun")
                 Text(
-                    text = day[page]
+                    text = days[page]
                 )
 
                 if (page == selectedPage) {

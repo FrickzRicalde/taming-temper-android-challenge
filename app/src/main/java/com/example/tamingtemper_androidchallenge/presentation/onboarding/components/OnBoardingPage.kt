@@ -26,6 +26,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.tamingtemper_androidchallenge.R
 import com.example.tamingtemper_androidchallenge.domain.models.TemperLevel
+import com.example.tamingtemper_androidchallenge.util.Constants.TEMPER_LEVEL_AVAILABLE
 
 @Composable
 fun OnBoardingPage(
@@ -100,7 +101,7 @@ fun OnBoardingPage(
 
         Spacer(modifier = Modifier.weight(0.01f))
 
-        val isAvailable = temperLevel.state?.uppercase() == "AVAILABLE"
+        val isAvailable = temperLevel.state?.uppercase() == TEMPER_LEVEL_AVAILABLE
 
         val state = rememberLazyGridState()
         LazyVerticalGrid(

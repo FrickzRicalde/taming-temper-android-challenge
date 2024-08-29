@@ -18,6 +18,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -39,7 +40,6 @@ fun OnBoardingPagItem(
     val icon = if (available) temperAct.icon else temperAct.lockedIcon
 
     if (document == null) {
-        println("LOAD IMAGEEEEEE")
         icon?.file?.let { file ->
             viewModel.loadImage(file, imageBitmap = { bitmap ->
                 document = bitmap
@@ -55,7 +55,6 @@ fun OnBoardingPagItem(
         verticalArrangement = Arrangement.Center,
     ) {
         if (document != null) {
-            println("RECOMPOSEEEEEEE")
 
             Image(
                 bitmap = document!!,
@@ -67,7 +66,6 @@ fun OnBoardingPagItem(
             )
         }
 
-
         Spacer(modifier = Modifier.height(5.dp))
 
         temperAct.title?.let {
@@ -76,6 +74,7 @@ fun OnBoardingPagItem(
                 fontSize = 12.sp,
                 lineHeight = 15.sp,
                 textAlign = TextAlign.Center,
+                fontWeight = FontWeight.Bold,
                 maxLines = 2, modifier = Modifier.fillMaxHeight()
             )
         }

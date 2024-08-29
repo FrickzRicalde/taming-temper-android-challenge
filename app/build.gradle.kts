@@ -2,13 +2,11 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
 
-//    id("com.google.devtools.ksp")
-
+    // I added START
     id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
-//    id("dagger.hilt.android.plugin")
+    // I added END
 
-//    id "com.google.devtools.ksp" version "1.6.21-1.0.6"
 }
 
 android {
@@ -67,23 +65,13 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+
+
+    // I added these dependencies START
     implementation("io.coil-kt:coil-compose:2.7.0")
     implementation("com.pspdfkit:pspdfkit:8.0.0")
     implementation ("com.google.code.gson:gson:2.11.0")
     implementation ("androidx.datastore:datastore-preferences:1.1.1")
-
-//    implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
-//    implementation("androidx.hilt:hilt-work:1.2.0")
-//    // When using Kotlin.
-//    kapt("androidx.hilt:hilt-compiler:1.2.0")
-//
-//    implementation("com.google.dagger:hilt-android:2.45")
-////    kapt("com.google.dagger:hilt-android-compiler:2.28")
-////    implementation("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0")
-////    kapt("androidx.hilt:hilt-compiler:1.0.0-alpha01")
-//
-//
-//    implementation("androidx.work:work-runtime-ktx:2.9.1")
 
     implementation("com.google.dagger:hilt-android:2.48")
     kapt("com.google.dagger:hilt-android-compiler:2.48")
@@ -91,16 +79,7 @@ dependencies {
     kapt("androidx.hilt:hilt-compiler:1.2.0")
     implementation("androidx.work:work-runtime-ktx:2.9.1")
     implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
-
-
-//    implementation("com.google.dagger:hilt-android:2.44")
-//    kapt("com.google.dagger:hilt-android-compiler:2.44")
-//    implementation("androidx.hilt:hilt-work:1.0.0")
-//    kapt("androidx.hilt:hilt-compiler:1.0.0")
-//    implementation("androidx.work:work-runtime-ktx:2.8.1")
-//    implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
-
-
+    // I added these dependencies END
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

@@ -12,8 +12,9 @@ data class TemperLevels(
         )
     }
 
-    public fun fromData(data: TemperLevelsData) {
+    public fun fromData(data: TemperLevelsData): TemperLevels? {
         levels = temperLevelsListFromData(data.levels)
+        return this
     }
 
     private fun temperLevelsListToData(activityList: ArrayList<TemperLevel>?): ArrayList<TemperLevelData>? {
